@@ -1,0 +1,35 @@
+[
+  {
+    "id": "seniors-a",
+    "name": "Seniors A",
+    "division": "Provinciale 1 Bruxelles-Brabant Wallon",
+    "coach": "À confirmer",
+    "players": 12,
+    "emoji": "⚽",
+    "serieId": 1226,
+    "competitionId": 91,
+    "color": "#C8102E"
+  },
+  {
+    "id": "seniors-b",
+    "name": "Seniors B",
+    "division": "Provinciale 2 Bruxelles-Brabant Wallon",
+    "coach": "À confirmer",
+    "players": 10,
+    "emoji": "🔴",
+    "serieId": 1227,
+    "competitionId": 91,
+    "color": "#C8102E"
+  },
+  {
+    "id": "veterans",
+    "name": "Vétérans",
+    "division": "Vétérans Bruxelles-Brabant Wallon",
+    "coach": "À confirmer",
+    "players": 11,
+    "emoji": "🏆",
+    "serieId": 1228,
+    "competitionId": 91,
+    "color": "#0A0A0A"
+  }
+]
