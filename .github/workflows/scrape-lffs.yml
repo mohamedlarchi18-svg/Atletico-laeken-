@@ -1,0 +1,87 @@
+name: Scraper LFFS — Atletico Laeken
+
+on:
+  schedule:
+    # Toutes les 3 heures
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Raison du déclenchement manuel'
+        required: false
+        default: 'Mise à jour manuelle des données LFFS'
+
+jobs:
+  scrape:
+    name: Scraper les données LFFS
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Configuration de Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Installation de Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Lancement du scraper LFFS
+        run: npm run scrape
+        env:
+          LFFS_CLUB_ID: 1466
+          LFFS_SEASON_ID: 9
+          LFFS_ORGANIZATION_ID: 1
+        continue-on-error: false
+        timeout-minutes: 10
+
+      - name: Vérification des changements dans /data
+        id: check_changes
+        run: |
+          git diff --quiet data/ || echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Files changed:"
+          git diff --name-only data/ || true
+
+      - name: Configuration de Git
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit et push des nouvelles données
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git add data/
+          git commit -m "chore(data): mise à jour automatique données LFFS [skip ci]
+
+          Scraping automatique du $(date -u +'%d/%m/%Y à %H:%M UTC')
+          Club: Atletico Laeken (ID: 1466)
+          Source: https://www.lffs.eu"
+          git push origin HEAD
+
+      - name: Aucun changement détecté
+        if: steps.check_changes.outputs.changes != 'true'
+        run: |
+          echo "✓ Les données LFFS sont déjà à jour. Aucun commit nécessaire."
+
+      - name: Résumé de l'exécution
+        if: always()
+        run: |
+          echo "=== Résumé du scraper ==="
+          echo "Heure: $(date -u +'%d/%m/%Y %H:%M UTC')"
+          echo "Club ID: 1466"
+          echo "Changements: ${{ steps.check_changes.outputs.changes == 'true' && 'OUI' || 'NON' }}"
+          echo "Fichiers data:"
+          ls -la data/ 2>/dev/null || echo "(dossier data vide ou introuvable)"

@@ -1,0 +1,102 @@
+{
+  "lastUpdated": "2024-01-15T10:00:00Z",
+  "clubId": 1466,
+  "matches": [
+    {
+      "id": "m1",
+      "date": "2024-01-14",
+      "homeTeam": "Atletico Laeken A",
+      "awayTeam": "FC Molenbeek",
+      "homeScore": 5,
+      "awayScore": 2,
+      "journee": 12,
+      "serieId": 1226,
+      "serieName": "Provinciale 1 BBW",
+      "status": "played"
+    },
+    {
+      "id": "m2",
+      "date": "2024-01-07",
+      "homeTeam": "Racing Ixelles",
+      "awayTeam": "Atletico Laeken A",
+      "homeScore": 3,
+      "awayScore": 3,
+      "journee": 11,
+      "serieId": 1226,
+      "serieName": "Provinciale 1 BBW",
+      "status": "played"
+    },
+    {
+      "id": "m3",
+      "date": "2024-01-10",
+      "homeTeam": "Atletico Laeken B",
+      "awayTeam": "Anderlecht Futsal",
+      "homeScore": 2,
+      "awayScore": 4,
+      "journee": 10,
+      "serieId": 1227,
+      "serieName": "Provinciale 2 BBW",
+      "status": "played"
+    },
+    {
+      "id": "m4",
+      "date": "2024-01-21",
+      "homeTeam": "Atletico Laeken A",
+      "awayTeam": "Schaerbeek United",
+      "homeScore": null,
+      "awayScore": null,
+      "journee": 13,
+      "serieId": 1226,
+      "serieName": "Provinciale 1 BBW",
+      "status": "upcoming"
+    },
+    {
+      "id": "m5",
+      "date": "2023-12-17",
+      "homeTeam": "Atletico Laeken A",
+      "awayTeam": "Forest FC",
+      "homeScore": 7,
+      "awayScore": 1,
+      "journee": 10,
+      "serieId": 1226,
+      "serieName": "Provinciale 1 BBW",
+      "status": "played"
+    },
+    {
+      "id": "m6",
+      "date": "2023-12-10",
+      "homeTeam": "Etterbeek FC",
+      "awayTeam": "Atletico Laeken B",
+      "homeScore": 1,
+      "awayScore": 3,
+      "journee": 9,
+      "serieId": 1227,
+      "serieName": "Provinciale 2 BBW",
+      "status": "played"
+    },
+    {
+      "id": "m7",
+      "date": "2024-01-28",
+      "homeTeam": "Atletico Laeken B",
+      "awayTeam": "Uccle Sport Futsal",
+      "homeScore": null,
+      "awayScore": null,
+      "journee": 11,
+      "serieId": 1227,
+      "serieName": "Provinciale 2 BBW",
+      "status": "upcoming"
+    },
+    {
+      "id": "m8",
+      "date": "2023-12-03",
+      "homeTeam": "Atletico Laeken Vétérans",
+      "awayTeam": "Forest Vétérans",
+      "homeScore": 4,
+      "awayScore": 2,
+      "journee": 8,
+      "serieId": 1228,
+      "serieName": "Vétérans BBW",
+      "status": "played"
+    }
+  ]
+}
